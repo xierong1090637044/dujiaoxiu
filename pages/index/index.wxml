@@ -1,0 +1,36 @@
+<view class="wrap">
+    <swiper class="swipers" autoplay="{{autoplay}}" current="{{currentSwiper}}" bindchange="swiperChange">  
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">  
+            <swiper-item>  
+                 <image src="{{item}}" class="slide-image" width="100%" height="150" ></image>  
+            </swiper-item>  
+        </block>  
+    </swiper>  
+   <!--重置小圆点的样式  -->
+    <view class="dots">  
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">  
+            <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>  
+        </block>  
+    </view>  
+</view>
+
+<!--底部导航栏-->
+<view class="cu-bar tabbar bg-white foot">
+    <navigator url="/pages/index/index" class="action text-red" open-type="redirect">
+      <view class='icon-homefill'></view> 首页
+    </navigator>
+    <navigator url="/pages/activities/activities" class="action text-gray" open-type="redirect">
+      <view class='icon-similar'></view> 活动
+    </navigator>
+    <view class="action text-gray add-action">
+      <button class='cu-btn icon-add bg-red shadow'></button>
+      发布
+    </view>
+    <navigator url="/pages/messages/messages" class="action text-gray" open-type="redirect">
+      <view class='icon-cart'></view>
+      消息
+    </navigator>
+    <navigator url="/pages/mine/mine" class="action text-gray" open-type="redirect">
+      <view class='icon-my'></view>我的
+    </navigator>
+</view>

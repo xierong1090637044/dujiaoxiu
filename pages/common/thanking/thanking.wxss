@@ -1,0 +1,86 @@
+.page
+{
+  padding: 15px;
+  width: 100%;
+}
+.content_style
+{
+  background:#fff;
+  padding:20px 15px;
+  border-radius:8px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.content_pro_name
+{
+  color: #333;
+  font-weight: bold;
+}
+.user_name
+{
+  margin-left: 10px;
+}
+
+.input_content
+{
+  background: #F5F5F5;
+  width: 100%;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.thank_button_style
+{
+  line-height: 44px;
+  color: #fff;
+  background: linear-gradient(to right, #FFC107 , #F5A623); /* 标准的语法 */
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.thank_line_style
+{
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  top: 0;
+}
+
+.content2_style
+{
+  position: relative;
+}
+
+.content_thank_people_content
+{
+  position: absolute;
+  bottom:-40%;
+  left: 15px;
+  background: #fff;
+  width: calc(100% - 30px);
+  padding: 15px;
+  border-radius:8px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content2_thank_content_style
+{
+  color: #333;
+  font-weight: bold;
+}
+
+.thank_content_people
+{
+  text-align: right;
+  margin-top: 20px;
+}
+
+.content2_timestyle
+{
+  color: #999;
+  font-size: 12px;
+}

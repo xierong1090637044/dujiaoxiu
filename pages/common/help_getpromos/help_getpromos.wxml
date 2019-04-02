@@ -1,0 +1,60 @@
+<!--第一部分-->
+<view class='frist_content'>
+  <view class='nickname_and_avatar'>
+    <view><image src='../../../images/icon/sign.png' class='avatar_style'></image></view>
+    <view>你是谁呀</view>
+  </view>
+  <view class='frist_text_desc'>万水千山总是情,帮砍一刀行不行~</view>
+  <view class='display_flex' style='padding:15px;'>
+    <view><image src='../../../images/test/detail.png' class='goods_70px'></image></view>
+    <view style='margin-left:10px'>
+      <view class='frist_pro_name'>大大所多多多多多多多多湿哒哒所大所大大撒多撒啊</view>
+      <view class='display_flex'>
+        <image src='../../../images/icon/sign.png' class='sign_20px'></image>
+        <text style='color:#FE0036;margin-left:5px;font-weight: bold;'>99</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--第二部分-->
+<view class='second_content'>
+  <view style='display:flex;justify-content: center'>
+    <view>距离结束还剩 </view>
+    <i-count-down target="{{targetTime}}" countdown-class="count_time" clear-timer="{{clearTimer}}"></i-count-down>
+  </view>
+  <view class='second_desctext'>—————— <text style="font-weight: bold;color: #333;">砍价进行中</text> —————</view>
+
+  <view style='display:flex;padding:0 20px;position:relative;margin-top:50px'>
+      <view style='margin-right:10px;color:#4BD321'>100</view>
+      <view class="cu-progress round" style='position:relative;height:16px'>
+        <view class='bg-green' style="width:{{loading?'61.8%':''}};position:relative"></view>
+        <view class='progress_sign'><image src='../../../images/icon/progrss_sign.png' class='image-auto'></image></view>
+      </view>
+      <view style='margin-left:10px;color:#4BD321'>0</view>
+      <view class="example">已砍10桃</view>
+    </view>
+
+    <view class='second_button'>
+      <view class='i_want_get_style bg_1' bindtap='go_to_pay'>直接要了</view>
+      <view class='i_want_get_style bg_2'>喊人帮砍</view>
+    </view>
+
+    <view class='second_text_notice'>邀请新用户帮砍，最多可翻10倍</view>
+</view>
+
+<!--第三部分-->
+<view class='second_content'>
+  <view class='second_desctext'>—————— <text style="font-weight: bold;color: #333;">砍价进行中</text> —————</view>
+
+  <view class='second_text_notice' style='font-weight:bold;font-size:14px !important'>还没有人帮你砍桃，快去邀请好友吧！</view>
+</view>
+
+<!--第四部分-->
+<view class='four_content'>
+  <view style='font-size:16px;'>砍价规则</view>
+   <view>1.邀请好友一起砍桃，砍到0桃，即可0桃领取； </view>
+   <view>2.每次砍桃数量随机，邀请新用户砍桃最多可翻10倍； </view>
+   <view>3.每个账户每天最多有5次帮助好友砍价的机会; </view>
+   <view>4.主办方可以根据本活动的实际举办情况对活动进行变动和调整，相关变动和调整将公布在商品页面上，公布后依法生效。</view>
+</view>

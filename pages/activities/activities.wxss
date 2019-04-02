@@ -1,0 +1,92 @@
+page {
+     width: 100%;
+     height: 100%;
+     background: white;
+}
+.second_item
+{
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.second_select
+{
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  width: 100%;
+  display: flex;
+  background: #fff;
+  z-index: 1000;
+  padding: 10px 15px
+}
+.second_select_item
+{
+  width: 25%;
+  text-align: center;
+  color: #999;
+}
+.second_select_item_selected
+{
+  width: 25%;
+  text-align: center;
+  color: #E72E62;
+}
+
+.tab_item
+{
+  color: #999999;
+  font-size: 20px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.thrid_scroll_item
+{
+  border-bottom:5px solid#F7F6F6;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+.thrid_text_desc
+{
+  color:#333;
+  font-weight: bold;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.thrid-view-wrap
+{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 0px;
+  bottom: 3px;
+  width: 100%;
+  color: #fff;
+  padding: 10px 20px 0;
+  background: linear-gradient(to top,rgba(0,0,0,0.4), rgba(255,255,255,0));
+  line-height: 35px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.cityListLetter {
+     width: 100%;
+     padding: 16rpx 24rpx 0rpx;
+     font-size: 30rpx;
+     font-weight: bold;
+     color: #ff7676;
+     background:#fff;
+     /* background-color: skyblue; */
+}
+.cityListItem {
+     width: 100%;
+     box-sizing: border-box;
+     padding: 20rpx 10rpx 10rpx;
+     margin-left: 14rpx;
+     font-size: 26rpx;
+     background-color: white;
+     border-bottom: #dedede 1rpx solid;
+}

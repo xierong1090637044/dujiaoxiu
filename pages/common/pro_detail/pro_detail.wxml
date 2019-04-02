@@ -1,0 +1,283 @@
+<scroll-view class='auto_height' scroll-y="true">
+  <!--第一部分-->
+  <view class='frist_content'>
+     <view><image src='../../../images/test/detail.png'></image></view>
+
+     <view class='pro-detail'>
+       <view class='left-item'>
+         <image src='../../../images/icon/sign.png' class='sign_image_style'></image>
+         <text class='sign_text'>99</text>
+         <view class='sign_text_desc'>一口价</view>
+       </view>
+       <view class='right_item'>剩12件/共100件</view>
+     </view>
+
+     <view class='padding-15 display_flex' style='text-align:left'>
+       <text class='pro_name_style'>泰金香茉莉香米10斤 大米5kg 籼米 新春礼新鲜 长粒香米 非东北米</text>
+       <view class='sign_text_desc_1'>全新</view>
+     </view>
+
+     <view class='content_desc_style'>
+       <view>自然健康 无污染 茉莉香米 热销爆款</view>
+       <view style='margin-bottom:15px'>【支持免邮券】全国发货</view>
+       <view style='margin-bottom:15px'>全国发货</view>
+       <view class='border_bottom'></view>
+     </view>
+
+     <view class='address_style'>
+       <view class='pro_detail_left'>
+         <view>
+          <text>乌鲁木齐</text>
+          <text> | </text>
+          <text>邮费：6</text>
+         </view>
+         <view class='for_free_imagestyle'><image src='../../../images/icon/get_free.png' class='image-auto'></image></view>
+       </view>
+       <view class='get_pro_detail_style'>查看商品详情 ></view>
+     </view>
+  </view>
+
+  <!--第二部分-->
+  <view class='duihuan_style'>
+    <!--<view><image></image></view>-->
+    <view>兑换成功</view>
+    <view>
+      <swiper autoplay="true" vertical="true"	display-multiple-items="6" style='height:240px'>
+        <block wx:for="{{12}}" wx:key="{{index}}">
+          <swiper-item style="display:flex; align-items: center">
+              <view style="display:flex; align-items: center;width:33%;justify-content: center">
+                <image src='../../../images/icon/sign.png' style='width:30px;height:30px' class='avatarstyle'></image>
+                <text style='color:#666666'>{{index}}</text>
+              </view>
+              <view style="display:flex; align-items: center;width:33%;justify-content: center">
+                <image src='../../../images/icon/sign.png' style='width:30px;height:30px'></image>
+                <text style='color:#FE0036;margin-left:5px;font-weight:bold'>{{index}}</text>
+              </view>
+
+              <view class='now_people_help_style'>2人帮砍</view>
+
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <!--第三部分-->
+  <view class='third_style'>
+    <view class='text_black text_padding'>您有<text style='color:#FE0036'>3232</text>桃子,邀请2个新用户砍桃</view>
+    <view class='text_black text_padding'>即可0桃白拿</view>
+    <view style='color:#999;font-size:10px'>砍桃只对当前宝贝有效</view>
+
+    <view style='display:flex;padding:0 20px;position:relative;margin-top:50px'>
+      <view style='margin-right:10px'>100</view>
+      <view class="cu-progress round" style='position:relative;height:16px'>
+        <view class='bg-green' style="width:{{loading?'61.8%':''}};position:relative"></view>
+        <view class='progress_sign'><image src='../../../images/icon/progrss_sign.png' class='image-auto'></image></view>
+      </view>
+      <view style='margin-left:10px'>0</view>
+      <view class="example">已砍10桃</view>
+    </view>
+
+    <view class="bg_2 help_fri_button">邀请好友帮我砍桃</view>
+  </view>
+
+  <!--第四部分-->
+  <view class='four_content_style'>
+    <view class='display_flex_bet border_1_97' style='padding-bottom:10px'>
+      <view class='display_flex'>
+       <view style='width:40px;height:40px'><image src='../../../images/test/flower.png' class='image-auto'></image></view>
+       <view class='margin_left_5' style='line-height:20px'>
+         <view style='color:#333;font-weight:bold'>一朵小红花</view>
+         <view style='font-size:10px;color:#999'>乌鲁木齐 | 5分钟之内来过白利淘</view>
+       </view>
+      </view>
+      <view class='guanzhu_style'>关注</view>
+    </view>
+
+    <view class='notice_pro_text'>累计发布 9899 件 在架 32 件</view>
+    <scroll-view scroll-x="true" class='frist_scroll_item'>
+      <view style='overflow-x:scroll;width:100%;display:flex;'>
+      <view class='fristscroll_image_style' wx:for="{{6}}" wx:key="{{index}}">
+        <image src='../../../images/test/shoe.png' class="image-goods"></image>
+        <view class='text_overflow'>一花夺宝dasdsadasdasd</view>
+        <view class='person_join_color'style="display:flex;align-items:center;margin-top:5px">
+          <image src='../../../images/icon/sign.png' style='width:16px;height:16px'></image>
+          <text class='person_join_color' style='font-size:16px;margin-left: 5px;'>12</text>
+        </view>
+      </view>
+      </view>
+      
+    </scroll-view>
+  </view>
+
+  <!--第五部分-->
+  <view class='five_content_style'>
+    <view class='display_flex_bet' style='padding:15px;'>
+      <view style="font-size:14px;color:#333;font-weight:bold">收到的感谢（125）</view>
+      <view style='color:#999;font-size:13px;'>更多感谢 ></view>
+    </view>
+
+    <view style='padding:0 0 15px 15px;width:100%;overflow-x:scroll;'>
+    <view style='overflow-x:scroll;width:100%;display:flex;'>
+      <view class="thank_letter_item" style='width:80%;padding:10px;margin-right:10px' wx:for="{{6}}" wx:key="{{index}}">
+      <image class='thank_line' src='../../../images/icon/thank_line.png'></image>
+      <view class="display_flex_bet" style='width:100%;'>
+        <view style='width:calc(100% - 92px)'>
+          <view class='display_flex text_overflow'>
+            <image src='../../../images/icon/sign.png' style='width:24px;height:24px;border-radius: 50%;'></image>
+            <text style='margin-left:5px'>我是肖金涛</text>
+          </view>
+          <view class='text_overflow_2'>大屌撒多撒多撒多无群二群翁无群而我却二无群二大叔大婶</view>
+        </view>
+        <view class='thank_let_detail_img'><image src='../../../images/test/detail.png' class='image-auto'></image></view>
+      </view>
+      <view class="position_time">2018-3-02 上海市</view>
+      </view>
+    </view>
+    </view>
+  </view>
+
+  <!--第六部分-->
+  <view class='four_content_style'>
+    <view class='display_flex_bet'>
+      <view style="color:#999;">32个打赏</view>
+      <view style='color:#999;font-size:13px;'>
+        <view class='display_flex for_a_person_button bg_3'>
+          <image src='../../../images/icon/sign_1.png' style='width:20px;height:20px;border-radius: 50%;'></image>
+          <text style='margin-left:5px'>打赏一个金桃</text>
+        </view>
+      </view>
+    </view>
+    <view class='display_flex' style='margin-top:15px'>
+      <view wx:for="{{7}}" wx:key="{{index}}" class='for_a_person_people'>
+        <image src='../../../images/test/flower.png' style='width:30px;height:30px;border-radius: 50%;'></image>
+      </view>
+      <view class='for_a_person_people'>
+        <image src='../../../images/icon/more.png' style='width:30px;height:30px;border-radius: 50%;'></image>
+      </view>
+    </view>
+  </view>
+
+  <!--第七部分-->
+  <view class='four_content_style display_flex_bet'>
+    <view class='display_flex'>
+      <view style='width:70px;height:70px;'><image src='../../../images/icon/more.png' class='image-auto'></image></view>
+      <view style='margin-left:5px'>
+        <view class='seven_shopname'>MU尚有口</view>
+        <view class='seven_shopdesc'>试用商家</view>
+      </view>
+    </view>
+    <view style="color:#999">进店逛逛 ></view>
+  </view>
+
+  <!--第八部分-->
+  <view class='four_content_style'>
+    <view>说说（3）</view>
+    <view class='display_flex_bet' style='border:1px solid#ddd;border-radius:20px;margin-top:10px'>
+      <view class='display_flex'>
+        <view><image src='../../../images/test/flower.png' style='width:30px;height:30px;border-radius: 50%;'></image></view>
+        <view style='margin-left:5px;'><input placeholder='说一句呗'></input></view>
+      </view>
+      <view class='seven_submit_but'>发送</view>
+    </view>
+
+    <scroll-view scroll-y="true" style='margin-top:10px'>
+      <view>
+        <view style='padding:10px 0 0;border-bottom:1px solid#ddd'>
+          <view class='display_flex_bet'>
+            <view class='display_flex'>
+              <view><image src='../../../images/test/flower.png' style='width:30px;height:30px;border-radius: 50%;'></image></view>
+              <view style='margin-left:5px;'>
+                <view>小荷花</view>
+                <view style='font-size:10px;color:#999'>五分钟前</view>
+              </view>
+            </view>
+
+            <view class='display_flex'>
+              <view class='display_flex' style='margin-right:10px'>
+                <image src='../../../images/icon/good.png' style='width:16px;height:16px;'></image>
+                <text style='margin-left:5px'>22</text>
+              </view>
+              <view class='display_flex'>
+                <image src='../../../images/icon/suggestion.png' style='width:16px;height:16px;'></image>
+                <text style='margin-left:5px'>22</text>
+              </view>
+            </view>
+          </view>
+          <view style='margin:10px 0 10px 30px'>大萨达所多撒多撒多所大所多无群</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!--第九部分-->
+  <view style='padding:10px 7.5px' class='nine_style'>
+    <view class='nine_text_desc'>相关推荐</view>
+    <view style='text-align:left'>
+    <view wx:for="{{6}}"  wx:key="{{index}}" bindtap='goto_detail' class='nine_list_item margin_'>
+       <image src='../../../images/tabbar/about.png' style='width:120px;height:120px'></image>
+       <view class='product_name_bold'>测试商品名册dasdsadsad</view>
+       <view class='desc_color'>一口价</view>
+       <view class='dispaly_flex' style='padding:5px 0;border-bottom:1px solid#ddd;'>
+         <view style='display:flex'>
+           <view><image src='../../../images/icon/sign.png' style='width:14px;height:14px'></image></view>
+           <view style='font-size:14px;color:#ff00d8;margin-left:3px'>12</view>
+         </view>
+         <view style='font-size:10px' class='text-gray'>可兑换</view>
+       </view>
+
+       <view class='dispaly_flex' style='padding:5px 0'>
+         <view style='display:flex'>
+           <view><image src='../../../images/tabbar/about.png' style='width:19px;height:19px' /></view>
+           <view>我也</view>
+         </view>
+         
+         <view class='text-gray' style='font-size:10px;line-height:22px'>上海市</view>
+       </view>
+
+    </view>
+  </view>
+  </view>
+</scroll-view>
+
+<!--直接要了点击-->
+<view class='mask' style='visibility: {{ten_content_vis}}' bindtap='hide_content'></view>
+<view class='ten_content' style='height:{{ten_content_height}}'>
+  <view style='padding:15px 15px 0;'>
+   <view class='display_flex_bet' style='padding:5px;'>
+     <view class='text_black'>当前价格： 99桃</view>
+     <view class='text_gray font_size_10'>（我有200金桃）</view>
+   </view>
+   <view class='display_flex_bet'style='padding:5px;'>
+     <view class='text_black'>好友帮砍： -99桃</view>
+     <view class='text_gray font_size_10'>（1个好友b帮忙砍桃）</view>
+   </view>
+   <view class='display_flex_bet'style='padding:5px;'>
+     <view class='text_black'>支付运费： 12元</view>
+     <view class='text_gray font_size_10'>无可用免邮券 ></view>
+   </view>
+   <view class='text_black' style='padding:5px;'>实际支付： <text style='color:#FE0036'>99</text></view>
+
+   <view class='ten_notice_text'>出花后长时间不支付运费，系统将自动取消订单，并扣桃20%</view>
+  </view>
+
+  <navigator class='ten_confrim_button' url='../order/order'>确认出价</navigator>
+</view>
+
+<!--悬浮底部导航-->
+<view class='pro_shold_get_pay_for'>
+  <view class='pay_for_left-item'>
+    <view class='left-item'>
+      <image src='../../../images/icon/sign.png' class='sign_image_style'></image>
+      <text class='sign_text_pay_for'>99</text>
+    </view>
+    <view class='pay_for_dec_color'>
+      <view>12333</view>
+      <view>我的金桃</view>
+    </view>
+  </view>
+  <view class='pay_for_right_item'>
+    <view class='i_want_get_style bg_1' bindtap='go_to_pay'>直接要了</view>
+    <navigator url='../help_getpromos/help_getpromos' class='i_want_get_style bg_2'>砍桃</navigator>
+  </view>
+</view>

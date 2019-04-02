@@ -1,0 +1,49 @@
+.wrap {
+  height: auto;
+  position: relative;
+  width: 100%;
+}
+
+.swipers {
+  height: 350rpx;
+  width: 100%;
+}
+
+.slide-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  padding: 10px 5px;
+}
+
+/*用来包裹所有的小圆点  */
+
+.dots {
+  width: 156rpx;
+  height: 36rpx;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 320rpx;
+  bottom: 20rpx;
+}
+
+/*未选中时的小圆点样式 */
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 26rpx;
+  background-color: rgba(255,255,255,.5);
+}
+
+/*选中以后的小圆点样式  */
+
+.active {
+  width: 20px;
+  height: 8px;
+  border-radius: 20px;
+  background-color: #e72e62;
+}

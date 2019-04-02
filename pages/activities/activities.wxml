@@ -1,0 +1,69 @@
+<!--第一部分-->
+<view style='display:flex;padding:10px 15px;align-items: center'>
+  <view bindtap='select_city'>全国 <i class="iconfont icon-down-trangle2"></i></view>
+  <view style='background:#F7F6F6;padding:10px 60px;border-radius: 20px;margin-left:10px;color:#999899;width:calc(100% - 60px)' bindtap='goto_search'>
+    <i class="iconfont icon-chazhao"></i>
+    <text style='margin-left:10px'>搜索你想要的</text>
+  </view>
+</view>
+
+<SelectCitiesView bind:citySelect='onCitySelect' letter-class='cityListLetter' item-class='cityListItem' style="display:{{select_city_display}}"></SelectCitiesView>
+
+<!--第二部分-->
+<view style='display:flex;padding:0px 15px;align-items: center;border-bottom:5px solid#F7F6F6;position:relative'>
+  <view style='width:calc(100vw - 24px);overflow-x:scroll'>
+  <i-tabs current="{{ current_scroll }}" scroll bindchange="handleChangeScroll" color="#E72E62">
+    <i-tab wx:for="{{remark}}" key="{{item.key}}" title="{{item.remark}}" wx:key="{{index}}" i-class="tab_item"></i-tab>
+  </i-tabs>
+  </view>
+  <view bindtap='show_state'><i class="iconfont {{icon_tab}}" style="font-size:25px;"></i></view>
+
+  <view class='second_select' style='display:{{select_state_display}}'>
+    <view wx:for="{{tab_down_state}}" wx:key="{{index}}" class="{{selected_state == index?'second_select_item_selected':'second_select_item'}}" bindtap='select_state' data-state="{{item.state}}">{{item.text}}</view>
+  </view>
+</view>
+
+<!--第三部分-->
+<scroll-view scroll-y="true" style='height:calc(100vh - 162px);padding:5px 0px' bindscrolltolower="loadMore">
+  <view wx:for="{{activities}}" wx:key="{{index}}" class='thrid_scroll_item'>
+    <view style='position: relative;'>
+      <image src='{{item.thumb}}' style='width:100%;height:200px;border-radius:4px'></image>
+      <view class="thrid-view-wrap" wx:if="{{item.end_status}}">
+        <view>距离<text style="color:#E72E62">结束</text>还剩：</view>
+        <view><i-count-down target="{{item.enddate}}" show-day="{{true}}"></i-count-down></view>
+      </view>
+      <view wx:else class="thrid-view-wrap">活动已结束</view>
+    </view>
+    
+    <view class='thrid_text_desc'>{{item.title}}</view>
+    <view style='display:{{dujiaoxiu_reinforce}}'>
+      <i-progress count="{{item.count}}" numbers="{{item.numbers}}" ></i-progress>
+      <view style='display:flex;margin-bottom:10px'>
+        <view style='margin:0 20px 0 0'>已点赞数<text style='color:#E72E62'>{{item.count}}</text></view>
+        <view>目标点赞数{{item.numbers}}</view>
+      </view>
+    </view>
+    
+  </view>
+</scroll-view>
+
+<!--底部导航栏-->
+<view class="cu-bar tabbar bg-white foot">
+    <navigator url="/pages/index/index" class="action text-gray" open-type="redirect">
+      <view class='icon-homefill'></view> 首页
+    </navigator>
+    <navigator url="/pages/messages/messages" class="action text-gray" open-type="redirect">
+      <view class='icon-cart'></view>
+      消息
+    </navigator>
+    <view class="action text-gray add-action">
+      <button class='cu-btn icon-add bg-red shadow'></button>
+      发布
+    </view>
+    <navigator url="/pages/activities/activities" class="action text-red" open-type="redirect">
+      <view class='icon-similar'></view> 活动
+    </navigator>
+    <navigator url="/pages/mine/mine" class="action text-gray" open-type="redirect">
+      <view class='icon-my'></view>我的
+    </navigator>
+</view>
