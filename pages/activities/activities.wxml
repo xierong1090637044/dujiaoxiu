@@ -1,6 +1,6 @@
 <!--第一部分-->
 <view style='display:flex;padding:10px 15px;align-items: center'>
-  <view bindtap='select_city'>全国 <i class="iconfont icon-down-trangle2"></i></view>
+  <view bindtap='select_city'>{{city_name}} <i class="iconfont icon-down-trangle2"></i></view>
   <view style='background:#F7F6F6;padding:10px 60px;border-radius: 20px;margin-left:10px;color:#999899;width:calc(100% - 60px)' bindtap='goto_search'>
     <i class="iconfont icon-chazhao"></i>
     <text style='margin-left:10px'>搜索你想要的</text>

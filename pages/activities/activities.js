@@ -5,6 +5,7 @@ let that;
 let activityState = 0; //活动状态
 let classifyType = 2; //活动类型
 let page_size = 10;//页面的条数
+let city_name="全国";//参数 城市名字
 let is_shown = false;
 Page({
 
@@ -18,6 +19,7 @@ Page({
       { text: "已结束", state: 3 }
     ],
     selected_state:0,
+    city_name:"全国",
 
     icon_tab:"icon-down-trangle2",
     select_state_display:"none",
@@ -76,15 +78,17 @@ Page({
   //城市点击
   onCitySelect: function (e) {
     console.log('城市选择', e);
-    that.select_city()
+    city_name = e.detail.city;
+    that.select_city();
   },
 
   //选择城市点击
   select_city:function(){
     if (is_shown) {
-      that.setData({ select_city_display: "none"});
+      that.setData({ select_city_display: "none", city_name: city_name});
       is_shown = false;
-      
+
+      that.getActivityList();
     } else {
       that.setData({ select_city_display: "block" });
       is_shown = true;
@@ -138,7 +142,8 @@ Page({
     var param = {
       classifyType: classifyType,
       activityState: activityState,
-      pageSize:page_size
+      pageSize:page_size,
+      cityName: city_name
     }
     http.Get("app/activity/activityList", param, (res) => {
       //console.log(res)
