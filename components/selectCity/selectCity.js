@@ -34,9 +34,11 @@ Component({
           citySelectEvent: function (e) {
                var city = e.target.dataset.city;
                var letter = e.target.dataset.letter;
+               var item = e.target.dataset.item;
                var detail = {
                     city: city,
-                    letter: letter
+                    letter: letter,
+                    item:item
                };
                this.triggerEvent('citySelect', detail);
           },

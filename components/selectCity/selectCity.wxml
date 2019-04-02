@@ -2,7 +2,7 @@
 <scroll-view class='cityList' scroll-y scroll-into-view='{{currentIndex}}' scroll-top='{{scrollTop}}'>
      <view wx:for='{{allCities}}' wx:key="{{index}}">
           <view class='letter-class' id="id{{index}}">{{item.letter}}</view>
-          <view class='item-class' wx:for='{{item.cityList}}' wx:for-item='cityItem' bindtap='citySelectEvent' data-city='{{cityItem.name}}' data-letter='{{cityItem.key}}' wx:key="{{index}}">{{cityItem.name}}</view>
+          <view class='item-class' wx:for='{{item.cityList}}' wx:for-item='cityItem' bindtap='citySelectEvent' data-city='{{cityItem.name}}' data-letter='{{cityItem.key}}' wx:key="{{index}}" data-item="{{cityItem}}">{{cityItem.name}}</view>
      </view>
 </scroll-view>
 
