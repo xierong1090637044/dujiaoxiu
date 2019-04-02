@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/activities/activities",
     "pages/mine/mine",
     "pages/index/index",
@@ -7,13 +7,13 @@
     "pages/common/order/order",
     "pages/common/help_getpromos/help_getpromos",
     "pages/common/pro_detail/pro_detail",
-    "pages/messages/messages"
-    
+    "pages/messages/messages",
+    "pages/activities/detail/detail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#E72E62",
     "navigationBarTitleText": "独角秀",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   }
 }

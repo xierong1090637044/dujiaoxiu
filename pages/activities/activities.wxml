@@ -25,14 +25,30 @@
 
 <!--第三部分-->
 <scroll-view scroll-y="true" style='height:calc(100vh - 162px);padding:5px 0px' bindscrolltolower="loadMore">
-  <view wx:for="{{activities}}" wx:key="{{index}}" class='thrid_scroll_item'>
+  
+  <view wx:if="{{activities.length == 0}}" style='text-align:center'>
+    <image src='../../images/no_content.png' style='width:40%;margin:20% 30% 0;height:180px;'></image>
+    <text style="color:#999">这里没活动，去隔壁看看吧</text>
+  </view>
+
+  <view wx:for="{{activities}}" wx:key="{{index}}" class='thrid_scroll_item' bindtap='goto_activity_detail' data-id='{{item.id}}'>
     <view style='position: relative;'>
       <image src='{{item.thumb}}' style='width:100%;height:200px;border-radius:4px'></image>
       <view class="thrid-view-wrap" wx:if="{{item.end_status}}">
         <view>距离<text style="color:#E72E62">结束</text>还剩：</view>
         <view><i-count-down target="{{item.enddate}}" show-day="{{true}}"></i-count-down></view>
       </view>
-      <view wx:else class="thrid-view-wrap">活动已结束</view>
+      <view wx:else class="thrid-view-wrap1">
+        <view wx:if="{{item.activity_type == 0}}" style='position:relative;width:60%;'>
+          <image src='../../images/bg_1.png' style='width:100%;height:30px'></image>
+          <view style='position:absolute;display:flex;top:0;left:0px;line-height: 30px;width:100%;justify-content:center;'>
+            <view>用时</view>
+            <i-count-down start_time="{{item.startdate}}" end_time="{{item.votingendtime}}" show-day="{{true}}" show_complete="{{true}}"></i-count-down>
+            <view>完成目标</view>
+          </view>
+        </view>
+        <view wx:else class="thrid-view-wrap">活动已结束</view>
+      </view>
     </view>
     
     <view class='thrid_text_desc'>{{item.title}}</view>
@@ -43,8 +59,8 @@
         <view>目标点赞数{{item.numbers}}</view>
       </view>
     </view>
-    
   </view>
+
 </scroll-view>
 
 <!--底部导航栏-->

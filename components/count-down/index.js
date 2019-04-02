@@ -1,7 +1,10 @@
 Component({
     properties: {
         target: Number,
+        start_time: Number,
+        end_time: Number,
         showDay: Boolean,
+        show_complete: Boolean,
         callback: String,
         format: Array,
         clearTimer: Boolean
@@ -44,7 +47,13 @@ Component({
         },
         getLastTime() {
             const data = this.data;
-            const gapTime = Math.ceil((data.target - new Date().getTime()) / 1000);
+            if(data.show_complete)
+            {
+              var gapTime = Math.ceil((data.end_time - data.start_time) / 1000);
+            }else{
+              var gapTime = Math.ceil((data.target - new Date().getTime()) / 1000);
+            }
+            
             let result = '';
             let time = '00:00:00';
             let day = '00';

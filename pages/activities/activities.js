@@ -1,6 +1,6 @@
 // pages/mine/mine.js
 const http = require('../../utils/httpHelper.js');
-var cities = require('../../utils/city.js');
+const cities = require('../../utils/city.js');
 let that;
 let activityState = 0; //活动状态
 let classifyType = 2; //活动类型
@@ -91,6 +91,16 @@ Page({
     }
   },
 
+  //点击去到活动详情
+  goto_activity_detail:function(e)
+  {
+    const activity_id = e.currentTarget.dataset.id;
+    console.log(activity_id)
+    wx.navigateTo({
+      url: 'detail/detail?id=' + activity_id,
+    })
+  },
+
   /*** 生命周期函数--监听页面加载*/
   onLoad: function (options) {
     that = this;
@@ -133,6 +143,7 @@ Page({
       pageSize:page_size
     }
     http.Get("app/activity/activityList", param, (res) => {
+      console.log(res)
       that.setData({activities:res.data});
     });
   },
