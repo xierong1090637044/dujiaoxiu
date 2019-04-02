@@ -5,6 +5,7 @@ let that;
 let activityState = 0; //活动状态
 let classifyType = 2; //活动类型
 let page_size = 10;//页面的条数
+let is_shown = false;
 Page({
 
   /*** 页面的初始数据*/
@@ -22,7 +23,7 @@ Page({
     select_state_display:"none",
     select_city_display:"none",
     dujiaoxiu_reinforce:"none",
-    is_shown:false,
+    
   },
 
   //搜索想要点击
@@ -39,22 +40,18 @@ Page({
       activities:null
     });
 
-    if (classifyType == "1") { 
-      that.setData({ dujiaoxiu_reinforce: "block" });
-      } else { 
-        that.setData({ dujiaoxiu_reinforce: "none" })
-      }
-
     that.getActivityList();
   },
 
   //点击向下的箭头
   show_state:function()
   {
-    if(that.data.is_shown){
-      that.setData({ select_state_display: "none", is_shown: false, icon_tab:"icon-down-trangle" })
+    if(is_shown){
+      that.setData({ select_state_display: "none", icon_tab:"icon-down-trangle" });
+      is_shown = false;
     }else{
-      that.setData({ select_state_display: "flex", is_shown: true, icon_tab: "icon-arrow-up"  })
+      that.setData({ select_state_display: "flex", icon_tab: "icon-arrow-up"  });
+      is_shown = true;
     }
   },
 
@@ -84,10 +81,13 @@ Page({
 
   //选择城市点击
   select_city:function(){
-    if (that.data.is_shown) {
-      that.setData({ select_city_display: "none", is_shown: false })
+    if (is_shown) {
+      that.setData({ select_city_display: "none"});
+      is_shown = false;
+      
     } else {
-      that.setData({ select_city_display: "block",is_shown: true })
+      that.setData({ select_city_display: "block" });
+      is_shown = true;
     }
   },
 
@@ -106,11 +106,7 @@ Page({
     that = this;
     that.getTabDesc();
     that.getActivityList();
-    //that.getCityList();
-    
-    this.setData({
-      allCities: cities
-    });
+    that.getCityList();
   },
 
   /*** 生命周期函数--监听页面初次渲染完成*/
@@ -120,7 +116,9 @@ Page({
 
   /*** 生命周期函数--监听页面显示*/
   onShow: function () {
-
+    this.setData({
+      allCities: cities
+    });
   },
 
   /*** 用户点击右上角分享*/
@@ -143,7 +141,7 @@ Page({
       pageSize:page_size
     }
     http.Get("app/activity/activityList", param, (res) => {
-      console.log(res)
+      //console.log(res)
       that.setData({activities:res.data});
     });
   },
@@ -152,8 +150,7 @@ Page({
   getCityList:function()
   {
     http.Get("app/city/list", {}, (res) => {
-      //console.log(res);
-      that.setData({ cities: res.data})
+      console.log(res)
     });
   }
 })

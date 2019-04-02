@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "帮我砍价",
-  "usingComponents": {
-    "i-count-down": "../../../components/count-down/index"
-  }
-}

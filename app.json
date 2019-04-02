@@ -3,12 +3,8 @@
     "pages/activities/activities",
     "pages/mine/mine",
     "pages/index/index",
-    "pages/common/thanking/thanking",
-    "pages/common/order/order",
-    "pages/common/help_getpromos/help_getpromos",
-    "pages/common/pro_detail/pro_detail",
-    "pages/messages/messages",
-    "pages/activities/detail/detail"
+    "pages/activities/detail/detail",
+    "pages/strategy/strategy"
   ],
   "window": {
     "backgroundTextStyle": "light",

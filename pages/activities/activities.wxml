@@ -33,26 +33,36 @@
 
   <view wx:for="{{activities}}" wx:key="{{index}}" class='thrid_scroll_item' bindtap='goto_activity_detail' data-id='{{item.id}}'>
     <view style='position: relative;'>
-      <image src='{{item.thumb}}' style='width:100%;height:200px;border-radius:4px'></image>
+      <image src='{{item.thumb}}' style='width:100vw;height:200px;border-radius:4px'></image>
       <view class="thrid-view-wrap" wx:if="{{item.end_status}}">
         <view>距离<text style="color:#E72E62">结束</text>还剩：</view>
         <view><i-count-down target="{{item.enddate}}" show-day="{{true}}"></i-count-down></view>
       </view>
-      <view wx:else class="thrid-view-wrap1">
-        <view wx:if="{{item.activity_type == 0}}" style='position:relative;width:60%;'>
-          <image src='../../images/bg_1.png' style='width:100%;height:30px'></image>
-          <view style='position:absolute;display:flex;top:0;left:0px;line-height: 30px;width:100%;justify-content:center;'>
-            <view>用时</view>
-            <i-count-down start_time="{{item.startdate}}" end_time="{{item.votingendtime}}" show-day="{{true}}" show_complete="{{true}}"></i-count-down>
-            <view>完成目标</view>
+      <view wx:else >
+        <view wx:if="{{item.activity_type == 0}}">
+          
+          <view class="thrid-view-wrap1">
+            <view style='position:relative;width:60%;'>
+            <image src='../../images/bg_1.png' style='width:100%;height:30px'></image>
+            <view style='position:absolute;display:flex;top:0;left:0px;line-height: 30px;width:100%;justify-content:center;'>
+              <view>用时</view>
+              <i-count-down start_time="{{item.startdate}}" end_time="{{item.votingendtime}}" show-day="{{true}}" show_complete="{{true}}" clear-timer="{{true}}"></i-count-down>
+              <view>完成目标</view>
+            </view>
+            </view>
           </view>
+
+          <view wx:if="{{item.count >= item.numbers}}">
+            <image src='../../images/reinforce_success.png' style='width:80px;height:55px;position:absolute;right:33px;top:26px'></image>
+          </view>
+          
         </view>
         <view wx:else class="thrid-view-wrap">活动已结束</view>
       </view>
     </view>
     
     <view class='thrid_text_desc'>{{item.title}}</view>
-    <view style='display:{{dujiaoxiu_reinforce}}'>
+    <view wx:if="{{item.activity_type == 0}}">
       <i-progress count="{{item.count}}" numbers="{{item.numbers}}" ></i-progress>
       <view style='display:flex;margin-bottom:10px'>
         <view style='margin:0 20px 0 0'>已点赞数<text style='color:#E72E62'>{{item.count}}</text></view>
@@ -68,9 +78,9 @@
     <navigator url="/pages/index/index" class="action text-gray" open-type="redirect">
       <view class='icon-homefill'></view> 首页
     </navigator>
-    <navigator url="/pages/messages/messages" class="action text-gray" open-type="redirect">
+    <navigator url="/pages/strategy/strategy" class="action text-gray" open-type="redirect">
       <view class='icon-cart'></view>
-      消息
+      攻略
     </navigator>
     <view class="action text-gray add-action">
       <button class='cu-btn icon-add bg-red shadow'></button>

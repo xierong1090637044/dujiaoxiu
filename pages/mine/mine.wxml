@@ -1,0 +1,20 @@
+<!--底部导航栏-->
+<view class="cu-bar tabbar bg-white foot">
+    <navigator url="/pages/index/index" class="action text-gray" open-type="redirect">
+      <view class='icon-homefill'></view> 首页
+    </navigator>
+    <navigator url="/pages/strategy/strategy" class="action text-gray" open-type="redirect">
+      <view class='icon-cart'></view>
+      攻略
+    </navigator>
+    <view class="action text-gray add-action">
+      <button class='cu-btn icon-add bg-red shadow'></button>
+      发布
+    </view>
+    <navigator url="/pages/activities/activities" class="action text-gray" open-type="redirect">
+      <view class='icon-similar'></view> 活动
+    </navigator>
+    <navigator url="/pages/mine/mine" class="action text-red" open-type="redirect">
+      <view class='icon-my'></view>我的
+    </navigator>
+</view>

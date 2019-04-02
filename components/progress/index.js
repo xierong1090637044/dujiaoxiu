@@ -31,10 +31,11 @@ Component({
     getNumber:function()
     {
       const data = this.data;
-      if (data.count % data.numbers > 100){
+      const percent = Math.round(data.count / data.numbers * 100);
+      if (percent > 100){
         this.setData({ percent: 100 })
       }else{
-        this.setData({ percent: data.count % data.numbers })
+        this.setData({ percent: percent })
       }
       
     }

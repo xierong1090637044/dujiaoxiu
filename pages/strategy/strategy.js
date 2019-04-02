@@ -1,26 +1,18 @@
-const common = require("../../../utils/common.js");
-let that;
+// pages/strategy/strategy.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    targetTime: 0,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    that = this;
-    common.setnavigationbarcolor(common.yellow);
 
-    setTimeout(function () {
-      that.setData({ loading: true })
-    }, 500);
-    
-    that.setData({ targetTime: new Date().getTime() + 6430000,})
   },
 
   /**
