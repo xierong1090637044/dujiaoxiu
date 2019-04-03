@@ -31,6 +31,15 @@
     <text style="color:#999">这里没活动，去隔壁看看吧</text>
   </view>
 
+  <view wx:else>
+    <view wx:if="{{classifyType == 1}}" style='display:flex;justify-content: space-between;padding:15px;'>
+      <view style='position:relative;'>
+        当前剩余应援棒：<text style='color:#e72162;font-weight: bold;'>{{deer_bar_number}}根</text>
+        <image src='../../images/bar_add_bg.png' style='width:40px;height:40px;position:absolute;top:-15px;left:-10px'></image>
+      </view>
+      <view style='color:#e72162;font-weight: bold;border-bottom:1px solid#e72162'>如何增加应援棒？</view>
+    </view>
+
   <view wx:for="{{activities}}" wx:key="{{index}}" class='thrid_scroll_item' bindtap='goto_activity_detail' data-id='{{item.id}}'>
     <view style='position: relative;'>
       <image src='{{item.thumb}}' style='width:100vw;height:200px;border-radius:4px'></image>
@@ -69,6 +78,7 @@
         <view>目标点赞数{{item.numbers}}</view>
       </view>
     </view>
+  </view>
   </view>
 
 </scroll-view>

@@ -1,6 +1,6 @@
 <import src="../../../utils/wxParse.wxml" />
 
-<scroll-view scroll-y="true">
+<scroll-view scroll-y="true" style='height:calc(100vh - 60px)' bindscrolltolower="load_more_comments">
   <view style='position: relative;'>
       <image src='{{item.thumb}}' style='width:100vw;height:200px;border-radius:4px'></image>
       <view class="thrid-view-wrap" wx:if="{{now_data < item.enddate}}">
@@ -8,24 +8,14 @@
         <view><i-count-down target="{{item.enddate}}" show-day="{{true}}"></i-count-down></view>
       </view>
       <view wx:else >
-        <view wx:if="{{item.activity_type == 0}}">
-          <view class="thrid-view-wrap1">
-            <view style='position:relative;width:60%;'>
-            <image src='../../images/bg_1.png' style='width:100%;height:30px'></image>
-            <view style='position:absolute;display:flex;top:0;left:0px;line-height: 30px;width:100%;justify-content:center;'>
-              <view>用时</view>
-              <i-count-down start_time="{{item.startdate}}" end_time="{{item.votingendtime}}" show-day="{{true}}" show_complete="{{true}}" clear-timer="{{true}}"></i-count-down>
-              <view>完成目标</view>
-            </view>
-            </view>
-          </view>
-
-          <view wx:if="{{item.count >= item.numbers}}">
-            <image src='../../images/reinforce_success.png' style='width:80px;height:55px;position:absolute;right:33px;top:26px'></image>
-          </view>
-          
+        <view wx:if="{{activity_type}}">
+          <view wx:if="{{item.count >= item.numbers}}" class="thrid-view-wrap1">应援已完成</view>
+          <view wx:else class="thrid-view-wrap1">应援未完成</view>
         </view>
-        <view wx:else class="thrid-view-wrap">活动已结束</view>
+        <view wx:else class="thrid-view-wrap">
+          <view wx:if="{{item.count >= item.numbers}}" class="thrid-view-wrap1">活动已完成</view>
+          <view wx:else class="thrid-view-wrap1">活动未完成</view>
+        </view>
       </view>
     </view>
     
@@ -56,17 +46,82 @@
       </view>
   </view>
 
-  <view class="content" style="padding:20px;">
+  <view class="content" style="padding:20px;border-bottom:5px solid#ddd" wx:if="{{now_data < item.enddate}}">
     <view style='color:#000;font-weight:bold;margin-bottom:20px;'>详情</view>
     <template is="wxParse" data="{{wxParseData:decode.nodes}}" />
   </view>
+
+  <!--评论的显示-->
+  <view style='padding:15px'>
+    <view class='display_flex_bet'>
+      <view style='font-size:18px;font-weight:bold'>评论</view>
+      <view style='padding:2px 8px;color:#e72e62;border:1px solid#e72e62;font-weight:bold;border-radius:20px;'>写评论</view>
+    </view>
+
+    <view style='display:flex;justify-content:center;margin:10px 0' wx:if="{{comments.length > 0}}">
+      <view class="{{sort ==2 ? 'selected_text':''}}" bindtap='comment_by_time'>时间</view>
+      <view style='margin:0 10px'> | </view>
+      <view class="{{sort ==1 ? 'selected_text':''}}" bindtap='comment_by_redu'>热度</view>
+    </view>
+
+    <view style='text-align:center;color:#999;padding:10px 0 0;'>快来发表你的评论吧!</view>
+
+  <view style='margin-top:10px'>
+    <view wx:for="{{comments}}" wx:key="{{index}}" style='padding-bottom:10px;border-bottom:1px solid#ddd;margin-bottom:10px'>
+      <view class='display_flex_bet'>
+        <view wx:if="{{item.headimgurl != null}}"><image src='{{item.headimgurl}}' class='comment_avatar'></image></view>
+        <view wx:else><image src='../../../images/no_users.png' class='comment_avatar'></image></view>
+
+        <view style='width:calc(100% - 60px);line-height:25px;'>
+          <view>{{item.nickname}}</view>
+          <view class='display_flex_bet'>
+            <view>{{item.timeline}}</view>
+            <view>{{item.floor}}楼</view>
+          </view>
+        </view>
+      </view>
+
+      <view style='margin-left:60px;'>
+         <view>{{item.content}}</view>
+
+         <view wx:if="{{item.replies.length >0 }}" class="replies_view">
+           <view wx:if="{{item.replies.length >3}}">
+             <view><text style='color:#666699'>{{item.replies[0].from_name}}：</text><text>{{item.replies[0].content}}</text></view>
+             <view><text style='color:#666699'>{{item.replies[1].from_name}}：</text><text>{{item.replies[1].content}}</text></view>
+             <view><text style='color:#666699'>{{item.replies[2].from_name}}：</text><text>{{item.replies[2].content}}</text></view>
+             <view wx:if="{{item.replies.length >3 }}" style="text-align:center;color:#4899FE;margin:10px 0">查看全部{{item.replies.length}}评论</view>
+           </view>
+           <view wx:else>
+             <view wx:for="{{item.replies}}"><text style='color:#666699'>{{item.from_name}}：</text><text>{{item.content}}</text></view>
+           </view>
+           
+         </view>
+
+          <view style='text-align:right;'>
+            <i class="iconfont icon-pinglun"></i>
+            <text> {{item.reply}} </text>
+            <i class="iconfont icon-dianzan1" style="font-size:20px"></i>
+            <text> {{item.star}} </text>
+          </view>
+      </view>
+      
+    </view>
+  </view>
+  </view>
+
 </scroll-view>
 
 <view class="fixed_item">
-  <view style='position:relative'>
-    <image src='../../../images/button_bg.png' style='width:70%;height:35px;'></image>
-    <view style='width:70%;height:35px;position:absolute;left:0;top:0;line-height:35px;text-align:center;color:#fff;'>我要参加</view>
+  <view style='position:relative;width:calc(100% - 50px)'  wx:if="{{now_data < item.enddate}}">
+    <image src='../../../images/button_bg.png' style='width:100%;height:35px;'></image>
+    <view style='width:100%;height:35px;position:absolute;left:0;top:0;line-height:35px;text-align:center;color:#fff;font-weight:bold'>我要参加</view>
   </view>
-  <view></view>
+  <view style='position:relative;width:calc(100% - 50px)'  wx:else>
+    <image src='../../../images/button_bg2.png' style='width:100%;height:35px;'></image>
+    <view style='width:100%;height:35px;position:absolute;left:0;top:0;line-height:35px;text-align:center;color:#999;font-weight:bold'>应援已结束</view>
+  </view>
+  <view>
+     <image src='../../../images/shoucang.png' style='width:40px;height:40px'></image>
+  </view>
 </view>
 

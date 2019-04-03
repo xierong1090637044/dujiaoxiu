@@ -19,6 +19,7 @@ Page({
       { text: "已结束", state: 3 }
     ],
     selected_state:0,
+    deer_bar_number:0,//应援棒数目
     city_name:"全国",
 
     icon_tab:"icon-down-trangle2",
@@ -39,7 +40,8 @@ Page({
     classifyType = detail.key;
     this.setData({
       current_scroll: detail.key,
-      activities:null
+      activities:null,
+      classifyType: classifyType
     });
 
     that.getActivityList();
@@ -99,7 +101,7 @@ Page({
   goto_activity_detail:function(e)
   {
     const activity_id = e.currentTarget.dataset.id;
-    console.log(activity_id)
+    
     wx.navigateTo({
       url: 'detail/detail?id=' + activity_id + "&activity_type=" + classifyType,
     })
