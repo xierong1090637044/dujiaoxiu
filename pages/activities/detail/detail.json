@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "活动详情",
+  "usingComponents": {
+    "i-count-down": "../../../components/count-down/index",
+    "i-progress": "../../../components/progress/index"
+  }
 }

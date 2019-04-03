@@ -1,2 +1,72 @@
-<!--pages/activities/detail/detail.wxml-->
-<text>pages/activities/detail/detail.wxml</text>
+<import src="../../../utils/wxParse.wxml" />
+
+<scroll-view scroll-y="true">
+  <view style='position: relative;'>
+      <image src='{{item.thumb}}' style='width:100vw;height:200px;border-radius:4px'></image>
+      <view class="thrid-view-wrap" wx:if="{{now_data < item.enddate}}">
+        <view>距离<text style="color:#E72E62">结束</text>还剩：</view>
+        <view><i-count-down target="{{item.enddate}}" show-day="{{true}}"></i-count-down></view>
+      </view>
+      <view wx:else >
+        <view wx:if="{{item.activity_type == 0}}">
+          <view class="thrid-view-wrap1">
+            <view style='position:relative;width:60%;'>
+            <image src='../../images/bg_1.png' style='width:100%;height:30px'></image>
+            <view style='position:absolute;display:flex;top:0;left:0px;line-height: 30px;width:100%;justify-content:center;'>
+              <view>用时</view>
+              <i-count-down start_time="{{item.startdate}}" end_time="{{item.votingendtime}}" show-day="{{true}}" show_complete="{{true}}" clear-timer="{{true}}"></i-count-down>
+              <view>完成目标</view>
+            </view>
+            </view>
+          </view>
+
+          <view wx:if="{{item.count >= item.numbers}}">
+            <image src='../../images/reinforce_success.png' style='width:80px;height:55px;position:absolute;right:33px;top:26px'></image>
+          </view>
+          
+        </view>
+        <view wx:else class="thrid-view-wrap">活动已结束</view>
+      </view>
+    </view>
+    
+    <view class='thrid_text_desc'>{{item.title}}</view>
+    <view style='padding:0 10px;color:#666;border-bottom:5px solid#ddd'>
+      <i-progress count="{{item.count}}" numbers="{{item.numbers}}" ></i-progress>
+      <view style='display:flex;margin-bottom:10px;justify-content:center;' wx:if="{{activity_type == 1}}">
+        <view >
+          <view style='color:#E72E62;text-align:center;font-weight:bold'>{{item.count}}</view>
+          <view>已点赞数</view>
+        </view>
+        <view style='margin:0 20px 0'> | </view>
+        <view>
+          <view style='text-align:center'>{{item.numbers}}</view>
+          <view>目标点赞数</view>
+        </view>
+      </view>
+      <view wx:else style='display:flex;margin-bottom:10px;justify-content:center'>
+        <view >
+          <view style='color:#E72E62;text-align:center;font-weight:bold'>{{item.count}}</view>
+          <view>当前参与人数</view>
+        </view>
+        <view style='margin:0 20px 0'> | </view>
+        <view>
+          <view style='text-align:center'>{{item.numbers}}</view>
+          <view>目标参与人数</view>
+        </view>
+      </view>
+  </view>
+
+  <view class="content" style="padding:20px;">
+    <view style='color:#000;font-weight:bold;margin-bottom:20px;'>详情</view>
+    <template is="wxParse" data="{{wxParseData:decode.nodes}}" />
+  </view>
+</scroll-view>
+
+<view class="fixed_item">
+  <view style='position:relative'>
+    <image src='../../../images/button_bg.png' style='width:70%;height:35px;'></image>
+    <view style='width:70%;height:35px;position:absolute;left:0;top:0;line-height:35px;text-align:center;color:#fff;'>我要参加</view>
+  </view>
+  <view></view>
+</view>
+

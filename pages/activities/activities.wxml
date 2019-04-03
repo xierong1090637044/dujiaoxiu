@@ -52,7 +52,7 @@
             </view>
           </view>
 
-          <view wx:if="{{item.count >= item.numbers}}">
+          <view wx:if="{{item.isverify}}">
             <image src='../../images/reinforce_success.png' style='width:80px;height:55px;position:absolute;right:33px;top:26px'></image>
           </view>
           

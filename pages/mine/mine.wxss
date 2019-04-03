@@ -1,1 +1,23 @@
-/* pages/mine/mine.wxss */
+page{
+  background: #fff;
+  text-align: center;
+}
+
+.header_text
+{
+  color: #4d4d4d;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.input_view
+{
+  padding: 20px 0 0;
+}
+
+.input_element
+{
+  text-align: left;
+  border-bottom: 1px solid#ddd;
+  padding: 0 5px;
+}

@@ -1,3 +1,23 @@
+<view>
+<!--第一部分-->
+<view style='display:flex;justify-content: space-between;padding:15px;'>
+  <view style='font-size:18px;'>X</view>
+  <view style='font-size:12px;'>极速注册</view>
+</view>
+
+<view class='header_text'>登陆独角秀</view>
+
+<view style='padding:15px;margin:20px 0'>
+  <view class='input_view'><input placeholder='请输入手机号码' class='input_element' maxlength='11'></input></view>
+  <view class='input_view'><input placeholder='密码(6～18位字母和数字的组合)' class='input_element' maxlength='18' password="true"></input></view>
+</view>
+
+<view>
+  <button>登陆</button>
+</view>
+
+</view>
+
 <!--底部导航栏-->
 <view class="cu-bar tabbar bg-white foot">
     <navigator url="/pages/index/index" class="action text-gray" open-type="redirect">

@@ -2,6 +2,7 @@
   "pages": [
     "pages/activities/activities",
     "pages/mine/mine",
+    
     "pages/index/index",
     "pages/activities/detail/detail",
     "pages/strategy/strategy"

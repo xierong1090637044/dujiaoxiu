@@ -101,7 +101,7 @@ Page({
     const activity_id = e.currentTarget.dataset.id;
     console.log(activity_id)
     wx.navigateTo({
-      url: 'detail/detail?id=' + activity_id,
+      url: 'detail/detail?id=' + activity_id + "&activity_type=" + classifyType,
     })
   },
 
@@ -109,8 +109,8 @@ Page({
   onLoad: function (options) {
     that = this;
     that.getTabDesc();
-    that.getActivityList();
-    that.getCityList();
+    
+    //that.getCityList();
   },
 
   /*** 生命周期函数--监听页面初次渲染完成*/
@@ -120,9 +120,19 @@ Page({
 
   /*** 生命周期函数--监听页面显示*/
   onShow: function () {
+    that.getActivityList();
     this.setData({
       allCities: cities
     });
+  },
+
+  onUnload:function()
+  {
+    activityState = 0; //活动状态
+    classifyType = 2; //活动类型
+    page_size = 10;//页面的条数
+    city_name = "全国";//参数 城市名字
+    is_shown = false;
   },
 
   /*** 用户点击右上角分享*/

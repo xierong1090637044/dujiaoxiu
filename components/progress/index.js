@@ -24,6 +24,7 @@ Component({
     },
     
   ready() {
+    
     this.getNumber()
   },
 
@@ -31,12 +32,16 @@ Component({
     getNumber:function()
     {
       const data = this.data;
-      const percent = Math.round(data.count / data.numbers * 100);
-      if (percent > 100){
-        this.setData({ percent: 100 })
-      }else{
-        this.setData({ percent: percent })
-      }
+      var that = this;
+      setTimeout(function () {
+        const percent = Math.round(data.count / data.numbers * 100);
+        if (percent > 100) {
+          that.setData({ percent: 100 })
+        } else {
+          that.setData({ percent: percent })
+        }
+      }, 500)
+      
       
     }
   }
